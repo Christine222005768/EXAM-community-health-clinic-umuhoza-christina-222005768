@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- owl stylesheets --> 
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #4fc3f7;
+            color: white;
+        }
+        .header img {
+            height: 50px;
+        }
+        .header nav {
+            display: flex;
+            gap: 15px;
+        }
+        .header button {
+            background-color: #0288d1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .header button:hover {
+            background-color: #0277bd;
+        }
+        .container {
+            position: relative;
+            height: calc(100% - 80px); /* Adjusting for header height */
+            background: url('background.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            background-color:lightblue;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .container .login-button {
+            background-color: #0288d1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .container .login-button:hover {
+            background-color: #0277bd;
+        }
+        .slider {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .navigation {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            color: white;
+        }
+        .navigation button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="images/logo.png" alt="Logo">
+        <nav>
+            <button onclick="location.href='login.php'">Login</button>
+            <button onclick="location.href='register.php'">Sign Up</button>
+        </nav>
+    </div>
+    <div class="container">
+        <h1>Welcome to community health clinic! Please log in to access all our services.</h1>
+        <button class="login-button" onclick="location.href='login.php'">Login</button>
+        <div class="slider">
+            <div class="slides">
+                <img src="images/img-1.png" alt="Slide 1">
+                <img src="images/img-1.png" alt="Slide 2">
+                <img src="images/img-1.png" alt="Slide 3">
+            </div>
+            <div class="navigation">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelector('.slides');
+        const slideImages = document.querySelectorAll('.slides img');
+
+        function showSlide(index) {
+            const totalSlides = slideImages.length;
+            if (index >= totalSlides) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
+            }
+            slides.style.transform = `translateX(${-currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    </script>
+       <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-3 col-sm-6">
+                  <div class="footer_logo"><a href="index.html"><img src="images/logo.png"></a></div>
+                  <h1 class="adderss_text">Contact Us</h1>
+                  <div class="map_icon"><img src="images/map-icon.png"><span class="paddlin_left_0">huye butare rwanda</span></div>
+                  <div class="map_icon"><img src="images/call-icon.png"><span class="paddlin_left_0">+250 789858455</span></div>
+                  <div class="map_icon"><img src="images/mail-icon.png"><span class="paddlin_left_0">muhozachristina@gmail.com</span></div>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h1 class="adderss_text">Doctors</h1>
+                  <div class="hiphop_text_1"> " your good health is our responsbility" </div>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h1 class="adderss_text">uniqueness</h1>
+                  <div class="Useful_text">we are the best</div>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h1 class="adderss_text">follow us on</h1>
+                  <div class="social_icon">
+                     <ul>
+                        <li><a href="#"><img src="images/fb-icon.png"></a></li>
+                        <li><a href="#"><img src="images/twitter-icon.png"></a></li>
+                        <li><a href="#"><img src="images/linkedin-icon.png"></a></li>
+                        <li><a href="#"><img src="images/instagram-icon.png"></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2024 All Rights Reserved. Design by <a href="https://html.design">umuhoza christina</a></p>
+         </div>
+      </div>
+</body>
+</html>
